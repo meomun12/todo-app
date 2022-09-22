@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./App.css";
 import TodoForm from "./components/TodoForm";
 import TodoItem from "./components/TodoItem";
+import { memo } from ".react";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -16,7 +17,7 @@ function App() {
     let newTodos = [todo, ...todos];
     setTodos(newTodos);
   };
-
+  console.log("re-render");
   const removeTodo = (id) => {
     let updatedTodos = [...todos].filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
@@ -31,7 +32,7 @@ function App() {
     });
     setTodos(updatedTodos);
   };
-
+  console.log(addTodo);
   const importantTodo = (id) => {
     let updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
@@ -47,7 +48,7 @@ function App() {
     <div className="todo-app">
       <h1>Todo List</h1>
       <TodoForm addTodo={addTodo} />
-      <hr className="seperator" />
+      <hr />
       {sortedTodos.map((todo) => {
         return (
           <TodoItem
@@ -55,7 +56,6 @@ function App() {
             completeTodo={completeTodo}
             importantTodo={importantTodo}
             todo={todo}
-            key={todo.id}
           />
         );
       })}

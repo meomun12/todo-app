@@ -98,9 +98,15 @@ h1 {
   cursor: pointer;
 }
 
-.seperator {
+/* .seperator {
   height: 1px;
   width: 80%;
   align-self: center;
   background-color: black;
 }
+.seperator{
+  height: 1px;
+  width: 90%;
+  align-self: center ;
+  background-color: black;
+} */
